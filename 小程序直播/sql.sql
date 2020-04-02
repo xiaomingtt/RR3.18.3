@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS `ims_ewei_shop_wxlive`;
+CREATE TABLE `ims_ewei_shop_wxlive` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL DEFAULT '0',
+  `room_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `cover_img` varchar(255) NOT NULL DEFAULT '',
+  `live_status` tinyint(3) NOT NULL DEFAULT '0',
+  `local_live_status` tinyint(1) NOT NULL DEFAULT '0',
+  `start_time` int(11) NOT NULL DEFAULT '0',
+  `end_time` int(11) NOT NULL DEFAULT '0',
+  `anchor_name` varchar(20) NOT NULL DEFAULT '',
+  `anchor_img` varchar(255) NOT NULL DEFAULT '',
+  `goods_json` text,
+  `is_top` tinyint(1) NOT NULL DEFAULT '0',
+  `is_recommend` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `idx_uniacid` (`uniacid`) USING BTREE,
+  KEY `idx_start_time` (`start_time`) USING BTREE,
+  KEY `idx_end_time` (`end_time`) USING BTREE,
+  KEY `idx_is_top` (`is_top`) USING BTREE,
+  KEY `idx_is_recommend` (`is_recommend`) USING BTREE,
+  KEY `idx_local_live_status` (`local_live_status`) USING BTREE,
+  KEY `idx_status` (`status`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
