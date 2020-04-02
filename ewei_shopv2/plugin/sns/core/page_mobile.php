@@ -1,0 +1,17 @@
+<?php
+/* 共赢源码 bbs.mswiner.com */
+class SnsMobilePage extends PluginMobilePage
+{
+	public $islogin = 0;
+
+	public function __construct()
+	{
+		parent::__construct();
+		global $_W;
+		global $_GPC;
+		$this->islogin = empty($_W['openid']) ? 0 : 1;
+		$this->model->checkMember();
+	}
+}
+
+?>
